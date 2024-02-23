@@ -123,7 +123,7 @@ export default defineComponent({
         uiConsole('provider not initialized yet');
         return;
       }
-      const web3 = new Web3(provider as any);
+      const web3 = new Web3(provider);
 
       // Get user's Ethereum public address
       const address = await web3.eth.getAccounts();
@@ -135,7 +135,7 @@ export default defineComponent({
         uiConsole('provider not initialized yet');
         return;
       }
-      const web3 = new Web3(provider as any);
+      const web3 = new Web3(provider);
 
       // Get user's Ethereum public address
       const address = (await web3.eth.getAccounts())[0];
@@ -153,7 +153,7 @@ export default defineComponent({
         uiConsole('provider not initialized yet');
         return;
       }
-      const web3 = new Web3(provider as any);
+      const web3 = new Web3(provider);
 
       // Get user's Ethereum public address
       const fromAddress = (await web3.eth.getAccounts())[0];
@@ -170,7 +170,7 @@ export default defineComponent({
     };
     // IMP END - Blockchain Calls
 
-    function uiConsole(...args: any[]): void {
+    function uiConsole(...args: unknown[]): void {
       const el = document.querySelector('#console>p');
       if (el) {
         el.innerHTML = JSON.stringify(args || {}, null, 2);
