@@ -61,6 +61,8 @@ module.exports = configure(function (ctx) {
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
+      devtool: 'source-map',
+      transpile: true,
       // transpileDependencies: [],
 
       // rtl: true, // https://quasar.dev/options/rtl-support
@@ -76,7 +78,6 @@ module.exports = configure(function (ctx) {
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       // chainWebpack (/* chain */) {}
       extendWebpack(config) {
-        config.devtool = 'source-map';
         config.resolve.symlinks = false;
         config.resolve.fallback = {
           crypto: false,
